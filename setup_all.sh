@@ -119,7 +119,5 @@ ls -d $_PWD/edgeai-*
 # patch
 pip install --upgrade mmcv_full==1.7.2 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.0/index.html
 pip install --upgrade "protobuf==3.20.3"
-pip install tqdm
-pip install scipy
 cd $_PWD
 echo "installation done."
