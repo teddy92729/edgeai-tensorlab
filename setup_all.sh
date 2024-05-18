@@ -38,6 +38,7 @@ if [[ $(python3 --version | awk '{print $2}') != "3.10."* ]]; then
     echo "Please use python 3.10.x"
     exit 1
 fi
+sudo apt install build-essential libssl-dev libffi-dev python3-dev
 
 #################################################################################
 # internal or external repositories
