@@ -45,9 +45,9 @@ training:
     # training_epochs: 15 #30
     # batch_size: 8 #32
     # learning_rate: 0.005
-    # num_gpus: 0 #1 #4
+    num_gpus: 1 #1 #4
 
 compilation:
     # enable/disable compilation
-    enable: True #False
+    enable: False #False
     # tensor_bits: 8 #16 #32
