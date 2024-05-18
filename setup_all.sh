@@ -31,7 +31,7 @@
 #
 #################################################################################
 
-PWD=$(pwd)
+_PWD=$(pwd)
 
 # check python version
 if [[ $(python3 --version | awk '{print $2}') != "3.10."* ]]; then
@@ -86,16 +86,16 @@ git config --global --add safe.directory $(pwd)
 echo "installing repositories..."
 
 echo "installing: edgeai-torchvision"
-cd $PWD/edgeai-torchvision
+cd $_PWD/edgeai-torchvision
 ./setup.sh
 
 echo "installing: edgeai-mmdetection"
-cd $PWD/edgeai-mmdetection
+cd $_PWD/edgeai-mmdetection
 ./setup.sh
 
 if [[ ${PLUGINS_ENABLE_EXTRA} -ne 0 ]]; then
   echo "installing: edgeai-yolox"
-  cd $PWD/edgeai-yolox
+  cd $_PWD/edgeai-yolox
   ./setup.sh
 fi
 
@@ -103,23 +103,23 @@ fi
 pip uninstall --yes onnxruntime
 
 echo "installing: edgeai-benchmark"
-cd $PWD/edgeai-benchmark
+cd $_PWD/edgeai-benchmark
 ./setup_pc.sh r9.0
 
 echo "installing edgeai-modelmaker"
-cd $PWD/edgeai-modelmaker
+cd $_PWD/edgeai-modelmaker
 ./setup.sh
 
 # make sure that we are using pillow-simd (which is faster)
 pip uninstall --yes pillow
 pip install --no-input -U --force-reinstall pillow-simd
 
-ls -d $PWD/edgeai-*
+ls -d $_PWD/edgeai-*
 
 # patch
 pip install --upgrade mmcv_full==1.7.2 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.0/index.html
 pip install --upgrade "protobuf==3.20.3"
 pip install tqdm
 pip install scipy
-cd $PWD
+cd $_PWD
 echo "installation done."
