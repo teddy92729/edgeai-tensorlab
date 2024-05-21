@@ -39,7 +39,7 @@ if [[ $(python3 --version | awk '{print $2}') != "3.10."* ]]; then
     exit 1
 fi
 sudo apt update
-sudo apt -y install build-essential libssl-dev libffi-dev python3-dev 
+sudo apt -y install build-essential libssl-dev libffi-dev python3-dev python3.10-venv
 if [[ ! -d venv ]]; then python3 -m venv venv;fi
 source $_PWD/venv/bin/activate
 
