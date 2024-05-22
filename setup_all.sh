@@ -124,6 +124,12 @@ ls -d $_PWD/edgeai-*
 # patch
 pip install --upgrade mmcv_full==1.7.2 -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.0/index.html
 pybind11_DIR=$(pybind11-config --cmakedir) pip3 install --upgrade --no-input https://github.com/TexasInstruments/onnx/archive/tidl-j7.zip
+# fix: no module named pkg_resources
+pip install --upgrade setuptools==69.5.1
+# fix: no module named mmdet
+cd $_PWD/edgeai-mmdetection
+python -m pip install -e .
+
 pip install --upgrade "protobuf==3.20.3"
 cd $_PWD
 echo "installation done."
