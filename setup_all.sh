@@ -129,6 +129,9 @@ pip install --upgrade setuptools==69.5.1
 # fix: no module named mmdet
 cd $_PWD/edgeai-mmdetection
 python -m pip install -e .
+# fix libnvrtc.so not found
+cd $_PWD/venv/lib/python3.10/site-packages/torch/lib/ 
+ln -s libnvrtc-*.so.11.2 libnvrtc.so
 
 pip install --upgrade "protobuf==3.20.3"
 cd $_PWD
